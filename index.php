@@ -9,7 +9,7 @@ if (isset($_SESSION['password']) && !empty($_SESSION['password'])) {
     $password = 'Password non generata';
 }
 
-var_dump($_SESSION['generatedPassword']);
+
 
 
 ?>

@@ -35,7 +35,8 @@ if (isset($_SESSION['password']) && !empty($_SESSION['password'])) {
     <img src="https://picsum.photos/500" class="card-img-top" alt="...">
     <div class="card-body">
       <h1>La tua nuova password è:</h1><br>
-      <h2><?php echo $password ?></h2>
+      <h2><?php echo $password ?></h2><br>
+      <a href="logout.php">Logout</a>
     </div>
   </div>
 </div>

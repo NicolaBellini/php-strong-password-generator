@@ -37,6 +37,11 @@ function generator($passwordLength, $carachters){
         $selectedCharacters = array_merge($selectedCharacters, $carachters['letters']);
     }
 
+    if(empty($selectedCharacters)){
+
+      $selectedCharacters = array_merge( $carachters['letters'], $carachters['numbers'],$carachters['maiusc'], $carachters['symbols']);
+    }
+
     for ($i = 0; $i < $passwordLength; $i++) {
       if(!isset($_POST['repeat'])){
         // se non è selezionato il no repeat allora non controllo la stringa
@@ -73,7 +78,7 @@ $carachters=[
     '!', '?', '&', '%', '$', '<', '>', '^', '+', '-', '*', '/', '(', ')', '[', ']', '{', '}', '@', '#', '_', '='
   ],
   'numbers'=>[
-    0,1, 2, 3, 4, 5, 6, 7, 8, 9,
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
   ],
 ];
 
