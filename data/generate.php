@@ -6,18 +6,26 @@ function generator($passwordLength, $carachters){
 
   $generatedPassword='';
 
-  // ciclo tante volte quanto la lunghezza della password indicata nel campo di input passwordlenght
-  for($i=0 ; $i<$passwordLength ; $i++){
-    // genero un indice random prensente nell' array
-    $randomIndex= array_rand($carachters['letters']);
-    // uso quell' indice random per prendere un carattere ad indice random nell' array desiderato
-    $generatedPassword.= $carachters['letters'][$randomIndex];
-  
-  };
+  if($passwordLength<=0){
+    $generatedPassword='non hai messo un numero adatto';
+  }elseif($passwordLength>=50){
+    $generatedPassword='abbonati a premium';
+  }else{
+    // ciclo tante volte quanto la lunghezza della password indicata nel campo di input passwordlenght
+    for($i=0 ; $i<$passwordLength ; $i++){
+      // genero un indice random prensente nell' array
+      $randomIndex= array_rand($carachters['letters']);
+      // uso quell' indice random per prendere un carattere ad indice random nell' array desiderato
+      $generatedPassword.= $carachters['letters'][$randomIndex];
+    
+    };
+  }
 
   return $generatedPassword;
 
 };
+
+
 
 $carachters=[
   'letters'=>[

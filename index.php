@@ -40,7 +40,7 @@ var_dump($_SESSION['generatedPassword']);
     <button type="submit" class="btn btn-primary">Submit</button>
   </form> 
 
-  <h2><?php echo $password ?></h2>
+ 
 </div>
 
 
