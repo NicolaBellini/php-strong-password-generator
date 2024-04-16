@@ -1,7 +1,17 @@
 <?php
-require_once __DIR__.'/data/generate.php'
-?>
+session_start();
+require_once __DIR__.'/data/generate.php';
 
+if (isset($_SESSION['password']) && !empty($_SESSION['password'])) {
+    $password =  $_SESSION['password'];
+} else {
+    $password = 'Password non generata';
+}
+
+var_dump($_SESSION['generatedPassword']);
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +28,7 @@ require_once __DIR__.'/data/generate.php'
 <body>
 
 <div class="container d-flex flex-wrap flex-column  p-5">
-  <form action="index.php" method="get">
+  <form action="result.php" method="post">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
       <!-- ho messo un pattern che impedisce all' utente di inserire testo al di fuori di numeri -->
@@ -30,7 +40,7 @@ require_once __DIR__.'/data/generate.php'
     <button type="submit" class="btn btn-primary">Submit</button>
   </form> 
 
-  <h2><?php echo generator($passwordLength, $carachters) ?></h2>
+  <h2><?php echo $password ?></h2>
 </div>
 
 

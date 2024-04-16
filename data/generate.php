@@ -1,4 +1,24 @@
 <?php 
+
+$passwordLength=$_POST['passLength'];
+
+function generator($passwordLength, $carachters){
+
+  $generatedPassword='';
+
+  // ciclo tante volte quanto la lunghezza della password indicata nel campo di input passwordlenght
+  for($i=0 ; $i<$passwordLength ; $i++){
+    // genero un indice random prensente nell' array
+    $randomIndex= array_rand($carachters['letters']);
+    // uso quell' indice random per prendere un carattere ad indice random nell' array desiderato
+    $generatedPassword.= $carachters['letters'][$randomIndex];
+  
+  };
+
+  return $generatedPassword;
+
+};
+
 $carachters=[
   'letters'=>[
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
@@ -14,25 +34,12 @@ $carachters=[
   ],
 ];
 
-function generator($passwordLength, $carachters){
-  $passwordGenerated='';
-
-  // ciclo tante volte quanto la lunghezza della password indicata nel campo di input passwordlenght
-
-  for($i=0 ; $i<$passwordLength ; $i++){
-    // genero un indice random prensente nell' array
-    $randomIndex= array_rand($carachters['letters']);
-    // uso quell' indice random per prendere un carattere ad indice random nell' array desiderato
-    $passwordGenerated .= $carachters['letters'][$randomIndex];
-  
-  };
-
-  return $passwordGenerated;
-};
-
-$passwordLength=$_GET['passLength'];
 
 
+  $_SESSION['password']= generator($passwordLength, $carachters);
+
+
+var_dump($passwordLength);
 
 
 
