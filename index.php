@@ -10,22 +10,28 @@ $carachters=[
     '!', '?', '&', '%', '$', '<', '>', '^', '+', '-', '*', '/', '(', ')', '[', ']', '{', '}', '@', '#', '_', '='
   ],
   'numbers'=>[
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
+    0,1, 2, 3, 4, 5, 6, 7, 8, 9,
   ],
 ];
 
 function generator($passwordLength, $carachters){
   $passwordGenerated='';
 
-  if($passwordLength>0){
-    $passwordGenerated= $carachters['letters'][3];
+  // ciclo tante volte quanto la lunghezza della password indicata nel campo di input passwordlenght
+
+  for($i=0 ; $i<$passwordLength ; $i++){
+    
+    $randomIndex= array_rand($carachters['symbols']);
+    $passwordGenerated .= $carachters['symbols'][$randomIndex];
+  
   };
 
   return $passwordGenerated;
 };
 
-$passwordLength=$_GET['passLength'];
-var_dump($_GET['passLength']);
+$passwordLength=10;
+var_dump(array_rand($carachters['letters']));
+
 
 
 
