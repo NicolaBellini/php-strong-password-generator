@@ -33,7 +33,10 @@ var_dump($_SESSION['generatedPassword']);
     <div class="mb-3">
       <div class="customize">
         <label for="symbols" class="form-label">simboli</label>
-        <input type="checkbox" id="symbols" name="symbols">
+        <input type="checkbox" id="symbols" name="symbols" value="true">
+
+        <label for="numbers" class="form-label">numeri</label>
+        <input type="checkbox" id="numbers" name="numbers">
 
         <label for="letters" class="form-label">lettere</label>
         <input type="checkbox" id="letters" name="letters">
