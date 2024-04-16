@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require_once __DIR__.'/data/generate.php';
 
 if (isset($_SESSION['password']) && !empty($_SESSION['password'])) {
@@ -30,7 +31,12 @@ var_dump($_SESSION['generatedPassword']);
 <div class="container d-flex flex-wrap flex-column  p-5">
   <form action="result.php" method="post">
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <div class="customize">
+        <label for="symbols" class="form-label">simboli</label>
+        <input type="checkbox" id="symbols" name="symbols">
+      </div>
+
+      
       <!-- ho messo un pattern che impedisce all' utente di inserire testo al di fuori di numeri -->
       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="passLength" pattern="\d+" placeholder="inserire la lunghezza della password desiderata">
      
