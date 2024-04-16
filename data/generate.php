@@ -22,6 +22,16 @@ function generator($passwordLength, $carachters){
         $generatedPassword.= $carachters['symbols'][$randomIndex];
       
       };
+    }elseif(isset($_POST['maiusc'])){
+  
+        // ciclo tante volte quanto la lunghezza della password indicata nel campo di input passwordlenght
+        for($i=0 ; $i<$passwordLength ; $i++){
+        // genero un indice random prensente nell' array
+        $randomIndex= array_rand($carachters['maiusc']);
+        // uso quell' indice random per prendere un carattere ad indice random nell' array desiderato
+        $generatedPassword.= $carachters['maiusc'][$randomIndex];
+      
+      };
     }else{
         for($i=0 ; $i<$passwordLength ; $i++){
         // genero un indice random prensente nell' array
@@ -54,7 +64,7 @@ $carachters=[
 
 
 
-  $_SESSION['password']= generator($passwordLength, $carachters);
+$_SESSION['password']= generator($passwordLength, $carachters);
 
 
 var_dump($passwordLength);
