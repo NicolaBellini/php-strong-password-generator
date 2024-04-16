@@ -39,15 +39,18 @@ function generator($passwordLength, $carachters){
 
     for ($i = 0; $i < $passwordLength; $i++) {
       if(!isset($_POST['repeat'])){
+        // se non è selezionato il no repeat allora non controllo la stringa
         $randomIndex = array_rand($selectedCharacters);
         $generatedPassword .= $selectedCharacters[$randomIndex];
       }else{
+        // se è checkato il no repeat divido la stringa in un array provvisorio, il quale controlla ogni carattere prima di pusharselo dentro, poi riconverto l' array in una stringa 
         $randomIndex = array_rand($selectedCharacters);
         $splittedPassword = str_split($generatedPassword);
         if(!in_array($selectedCharacters[$randomIndex], $splittedPassword )){
           $splittedPassword[]=$selectedCharacters[$randomIndex];
           $generatedPassword = implode('', $splittedPassword);
         }else{
+          // se scarta il carttere sottraggo a $i un ciclo
           $i--;
         }
       } 
@@ -55,7 +58,7 @@ function generator($passwordLength, $carachters){
 
     return $generatedPassword;
 
-  return $generatedPassword;
+
 
 };
 
