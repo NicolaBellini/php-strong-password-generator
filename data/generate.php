@@ -70,6 +70,4 @@ $_SESSION['password']= generator($passwordLength, $carachters);
 
 
 
-
-
 ?>
