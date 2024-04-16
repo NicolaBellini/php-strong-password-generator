@@ -33,8 +33,8 @@ function generator($passwordLength, $carachters){
         $selectedCharacters = array_merge($selectedCharacters, $carachters['numbers']);
     }
 
-    if (empty($selectedCharacters)) {
-        $selectedCharacters = $carachters['letters'];
+    if (isset($selectedCharacters)) {
+        $selectedCharacters = array_merge($selectedCharacters, $carachters['letters']);
     }
 
     for ($i = 0; $i < $passwordLength; $i++) {
@@ -68,7 +68,7 @@ $carachters=[
 $_SESSION['password']= generator($passwordLength, $carachters);
 
 
-var_dump($_POST['symbols']);
+
 
 
 
