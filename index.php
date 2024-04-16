@@ -20,20 +20,18 @@ function generator($passwordLength, $carachters){
   // ciclo tante volte quanto la lunghezza della password indicata nel campo di input passwordlenght
 
   for($i=0 ; $i<$passwordLength ; $i++){
-    
-    $randomIndex= array_rand($carachters['symbols']);
-    $passwordGenerated .= $carachters['symbols'][$randomIndex];
+    // genero un indice random prensente nell' array
+    $randomIndex= array_rand($carachters['letters']);
+    // uso quell' indice random per prendere un carattere ad indice random nell' array desiderato
+    $passwordGenerated .= $carachters['letters'][$randomIndex];
   
   };
 
   return $passwordGenerated;
 };
 
-$passwordLength=10;
+$passwordLength=$_GET['passLength'];
 var_dump(array_rand($carachters['letters']));
-
-
-
 
 
 
@@ -55,12 +53,13 @@ var_dump(array_rand($carachters['letters']));
 </head>
 <body>
 
-<div class="container p-5">
+<div class="container d-flex flex-wrap flex-column  p-5">
   <form action="index.php" method="get">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="passLength">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <!-- ho messo un pattern che impedisce all' utente di inserire testo al di fuori di numeri -->
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="passLength" pattern="\d+" placeholder="inserire la lunghezza della password desiderata">
+     
     </div>
     
    
