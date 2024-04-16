@@ -33,13 +33,24 @@ function generator($passwordLength, $carachters){
         $selectedCharacters = array_merge($selectedCharacters, $carachters['numbers']);
     }
 
-    if (isset($selectedCharacters)) {
+    if (isset($_POST['letters'])) {
         $selectedCharacters = array_merge($selectedCharacters, $carachters['letters']);
     }
 
     for ($i = 0; $i < $passwordLength; $i++) {
+      if(!isset($_POST['repeat'])){
         $randomIndex = array_rand($selectedCharacters);
         $generatedPassword .= $selectedCharacters[$randomIndex];
+      }else{
+        $randomIndex = array_rand($selectedCharacters);
+        $splittedPassword = str_split($generatedPassword);
+        if(!in_array($selectedCharacters[$randomIndex], $splittedPassword )){
+          $splittedPassword[]=$selectedCharacters[$randomIndex];
+          $generatedPassword = implode('', $splittedPassword);
+        }else{
+          $i--;
+        }
+      } 
     }
 
     return $generatedPassword;

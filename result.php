@@ -22,13 +22,22 @@ if (isset($_SESSION['password']) && !empty($_SESSION['password'])) {
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
+
+  <link rel="stylesheet" href="./style.css">
   <title>title</title>
 </head>
 <body>
   
-<div class="container p-5 ">
-  <h1>La tua nuova password è:</h1><br>
-   <h2><?php echo $password ?></h2>
+<div class="container p-5 d-flex justify-content-center ">
+  
+
+  <div class="card my-card" >
+    <img src="https://picsum.photos/500" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h1>La tua nuova password è:</h1><br>
+      <h2><?php echo $password ?></h2>
+    </div>
+  </div>
 </div>
 
 </body>

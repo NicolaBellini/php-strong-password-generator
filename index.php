@@ -24,6 +24,7 @@ var_dump($_SESSION['generatedPassword']);
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
+
   <title>title</title>
 </head>
 <body>
@@ -31,9 +32,13 @@ var_dump($_SESSION['generatedPassword']);
 <div class="container d-flex flex-wrap flex-column  p-5">
   <form action="result.php" method="post">
     <div class="mb-3">
-      <div class="customize">
+
+       <label for="repeat" class="form-label">non ripetere caratteri</label>
+       <input type="checkbox" id="repeat" name="repeat" >
+      
+        <div class="customize">
         <label for="symbols" class="form-label">simboli</label>
-        <input type="checkbox" id="symbols" name="symbols" value="true">
+        <input type="checkbox" id="symbols" name="symbols">
 
         <label for="numbers" class="form-label">numeri</label>
         <input type="checkbox" id="numbers" name="numbers">
