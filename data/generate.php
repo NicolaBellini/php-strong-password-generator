@@ -2,46 +2,43 @@
 
 $passwordLength=$_POST['passLength'];
 
+function customize(){
+
+}
+
 
 function generator($passwordLength, $carachters){
 
-  $generatedPassword='';
+    $generatedPassword = '';
 
-  if($passwordLength<=0){
-    $generatedPassword='non hai messo un numero adatto';
-  }elseif($passwordLength>=50){
-    $generatedPassword='abbonati a premium';
-  }else{
-    if(isset($_POST['symbols'])){
-  
-        // ciclo tante volte quanto la lunghezza della password indicata nel campo di input passwordlenght
-        for($i=0 ; $i<$passwordLength ; $i++){
-        // genero un indice random prensente nell' array
-        $randomIndex= array_rand($carachters['symbols']);
-        // uso quell' indice random per prendere un carattere ad indice random nell' array desiderato
-        $generatedPassword.= $carachters['symbols'][$randomIndex];
-      
-      };
-    }elseif(isset($_POST['maiusc'])){
-  
-        // ciclo tante volte quanto la lunghezza della password indicata nel campo di input passwordlenght
-        for($i=0 ; $i<$passwordLength ; $i++){
-        // genero un indice random prensente nell' array
-        $randomIndex= array_rand($carachters['maiusc']);
-        // uso quell' indice random per prendere un carattere ad indice random nell' array desiderato
-        $generatedPassword.= $carachters['maiusc'][$randomIndex];
-      
-      };
-    }else{
-        for($i=0 ; $i<$passwordLength ; $i++){
-        // genero un indice random prensente nell' array
-        $randomIndex= array_rand($carachters['letters']);
-        // uso quell' indice random per prendere un carattere ad indice random nell' array desiderato
-        $generatedPassword.= $carachters['letters'][$randomIndex];
-      
-      };
+    if ($passwordLength <= 0) {
+        return 'Non hai inserito un numero adatto';
     }
-  }
+
+    if ($passwordLength >= 50) {
+        return 'Abbonati a premium';
+    }
+
+    $selectedCharacters = [];
+
+    if (isset($_POST['symbols'])) {
+        $selectedCharacters = array_merge($selectedCharacters, $carachters['symbols']);
+    }
+
+    if (isset($_POST['maiusc'])) {
+        $selectedCharacters = array_merge($selectedCharacters, $carachters['maiusc']);
+    }
+
+    if (empty($selectedCharacters)) {
+        $selectedCharacters = $carachters['letters'];
+    }
+
+    for ($i = 0; $i < $passwordLength; $i++) {
+        $randomIndex = array_rand($selectedCharacters);
+        $generatedPassword .= $selectedCharacters[$randomIndex];
+    }
+
+    return $generatedPassword;
 
   return $generatedPassword;
 
